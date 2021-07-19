@@ -17,9 +17,10 @@ for root, dirs, files in os.walk(catalog, topdown=True):
                 content=str(content)
             if(re.search(pattern,content)):
                 matched=re.search(pattern,content)
-                #if matched:
                 prev_path=matched.group(0)
                 df=df.append({'Path':webcat,'prev_src':prev_path},ignore_index=True)
-                print(df)
+                #Pivot this:
+                pivot=df.pivot_table(index=['prev_src'],values=['prev_src'], aggfunc=len,fill_value=0)']
+                print(pivot)
                 #df.to_csv('')
 
