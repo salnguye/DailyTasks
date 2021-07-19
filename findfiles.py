@@ -7,7 +7,7 @@ import csv
 pattern='^(\/[\w-]+)+\.|[\\.\w-]+\.(png|jpg|pdf|htm|html|mht|js)'
 columns=['Path', 'prev_src']
 df=pd.DataFrame(columns=columns)
-catalog = "/Users/salnguyen/Documents/content/catalog/root/shared"
+catalog = ""
 for root, dirs, files in os.walk(catalog, topdown=True):
     for f in files:
         webcat=os.path.join(root,f)
@@ -21,5 +21,5 @@ for root, dirs, files in os.walk(catalog, topdown=True):
                 prev_path=matched.group(0)
                 df=df.append({'Path':webcat,'prev_src':prev_path},ignore_index=True)
                 print(df)
-                #df.to_csv('BIITSEXTOAC_IRFiles.csv')
+                #df.to_csv('')
 
